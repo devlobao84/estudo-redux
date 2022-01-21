@@ -16,7 +16,7 @@ class App extends Component {
   changeState() {
     this.setState({
       name: "Ana amoremio",
-      email: "jonas@mail.com"
+      email: "lobao@mail.com"
     });
   }
 
@@ -33,7 +33,6 @@ class App extends Component {
     this.setState({
       [index]:target.value 
     })
-
   }
 
   render() {
