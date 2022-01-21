@@ -6,9 +6,11 @@ class App extends Component {
     super(props);
     this.state = {
       name: "Jonas",
+      
     };
     this.changeState = this.changeState.bind(this);
     this.resetState = this.resetState.bind(this);
+    this.changeInput = this.changeInput.bind(this); 
   }
 
   changeState() {
@@ -24,10 +26,39 @@ class App extends Component {
     });
   }
 
+  changeInput(event) {
+    let target = event.target
+    let index = target.name
+
+    this.setState({
+      [index]:target.value 
+    })
+
+  }
+
   render() {
     return (
       <div className="App">
-        <div>{this.state.name} - {this.state.email}</div>
+        <div>
+          <form>
+            <label>Nome
+              <input
+               type="text"
+               name="name"
+               value={this.state.name}
+               onChange={this.changeInput}    
+               ></input>
+            </label>
+            <label>E-mail
+              <input
+               type="email"
+               name="email"
+               value={this.state.email}
+               onChange={this.changeInput}    
+               ></input>
+            </label>
+          </form>
+          {this.state.name} - {this.state.email}</div>
         <div className="App">
           <button onClick={this.changeState}> Mudar estado</button>
           <button onClick={this.resetState}> Resetar estado</button>
